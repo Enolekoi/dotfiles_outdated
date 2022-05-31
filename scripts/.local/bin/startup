@@ -1,0 +1,7 @@
+#!/bin/sh
+
+xsetroot -cursor_name left_ptr &
+unclutter &
+feh --bg-fill '/home/finn/.config/wallpaper/wall.jpg' &
+picom --experimental-backends &
+sxhkd &

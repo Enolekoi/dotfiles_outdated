@@ -1,0 +1,40 @@
+Config { font = "xft:UbuntuMono Nerd Font:pixelsize=16:antialias=true:hinting=true"
+         additionalFonts = ["xft:UbuntuMono Nerd Font:pixelsize=13:antialias=true:hinting=true"
+       ]
+       , borderColor = "black"
+       , border = TopB
+       , bgColor = "#282A36"
+       , fgColor = "#F8F8F2"
+       , alpha = 255
+       , position = Static { xpos = 0, ypos= 0, width = 1920, height = 30}
+       , lowerOnStart = True
+       , persistent = False
+       , hideOnStart = False
+       , allDesktops = True
+       , iconRoot = "/home/finn/.xmonad/icons/" -- default:"."
+       , commands = [
+       		    -- Weather Module
+       		      Run Weather "EGPF" ["-t","<station>: <tempC>C","-L","18","-H","25","--normal","green","--high","red","--low","lightblue"] 36000
+       		    -- Network Module
+                    , Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+       		    -- CPU Module
+                    , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
+       		    -- RAM Module
+                    , Run Memory ["-t","Mem: <usedratio>%"] 10
+       		    -- Swap Module
+                    , Run Swap [] 10
+       		    -- Kernel Module
+                    , Run Com "uname" ["-s","-r"] "" 36000
+       		    -- Updates Module
+                    , Run Com "/home/finn/.local/bin/pacupdate" [] "pacupdate" 36000
+       		    -- Date Module
+    		    , Run Date "<fn=2>\xf133 </fn> %a %_d %B %Y" "date" 50
+    		    , Run Date "<fn=2>\xf017 </fn> %H:%M" "clock" 50
+		    -- Prints our the left side items such as workspaces, layouts, etc.
+		    -- The workspaces are 'clickable' in my configs.
+		    , Run UnsafeStdinReader 
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " <fn=1>%UnsafeStdinReader%</fn>}{ <fc=#BD93F9>%pacupdate%</fc> | <fc=#FF79C6>%date%</fc> | %clock% Uhr" 
+       }

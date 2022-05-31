@@ -1,0 +1,57 @@
+#
+# wm independent hotkeys
+#
+#pulsemixer --change-volume +5
+#pulsemixer --change-volume -5
+#changeVolume 2dB+ unmute
+#changeVolume 2dB- unmute
+# sound
+XF86AudioRaiseVolume
+    /home/finn/.local/bin/changeVolume 2dB+ unmute
+XF86AudioLowerVolume
+    /home/finn/.local/bin/changeVolume 2dB- unmute
+XF86AudioMute
+    pulsemixer --toggle-mute
+XF86AudioPrev
+    playerctl --player=spotify previous
+XF86AudioPlay
+    playerctl --player=spotify  play-pause
+XF86AudioNext
+    playerctl --player=spotify  next
+
+# screenshot
+Print
+    scrot ~/Bilder/%Y-%m-%d-%T-screenshot.png
+
+# terminal emulator
+alt + Return
+	st
+
+# program launcher
+alt + @space
+	j4-dmenu-desktop --dmenu="dmenu -c -l 15 -h "24" "
+alt + shift + @space
+	dmenu_run -c -l 15 -h "24"
+
+# gui file manager
+alt + d
+    spacefm
+
+# bookmarks
+alt + b
+    /home/finn/.local/bin/bookmarks open | xargs -r firefox
+
+alt + shift + b
+    /home/finn/.local/bin/bookmarks add "$(xsel -op)"; \
+    xsel -cd
+    && xsel -c
+
+# make sxhkd reload its configuration files:
+alt + Escape
+	pkill -USR1 -x sxhkd
+#######
+    #killall picom; \
+    #picom --corner-radius 0;
+
+    #killall picom; \
+    #picom --corner-radius 12;

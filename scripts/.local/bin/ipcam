@@ -1,0 +1,39 @@
+#!/bin/bash
+
+PROTOCOL=https
+IP_ADDRESS=192.168.178.51
+PORT=8080
+ENDPOINT=video
+DEVICE_NUMBER=7
+ENCODE_OPTIONS="-c:v copy"
+# ENCODE_OPTIONS="-vcodec rawvideo -pix_fmt yuv420p -threads 0"
+SUDO=sudo
+
+if ! command -v adb &> /dev/null
+then
+    echo "adb is not installed!"
+    exit
+fi
+
+if ! command -v ffmpeg &> /dev/null
+then
+    echo "ffmpeg is not installed!"
+    exit
+fi
+
+echo "waiting for the device to show up via adb"
+adb wait-for-usb-device
+
+adb forward tcp:$PORT tcp:$PORT
+
+$SUDO modprobe v4l2loopback video_nr=$DEVICE_NUMBER 'card_label=IP Webcam'
+
+echo "================================================================"
+echo "If you want to control the resolution, focus, ISO and etc, visit $PROTOCOL://$IP_ADDRESS:$PORT/"
+echo "================================================================"
+
+ffmpeg -i "$PROTOCOL://$IP_ADDRESS:$PORT/$ENDPOINT" $ENCODE_OPTIONS -f v4l2 /dev/video$DEVICE_NUMBER
+
+# $SUDO modprobe -r v4l2loopback
+
+

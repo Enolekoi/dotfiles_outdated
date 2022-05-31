@@ -1,0 +1,95 @@
+!Whj is Who
+!Black      color0
+!           color8
+!Red        color1
+!           color9
+!Green      color2
+!           color10
+!Yellow     color3
+!           color11
+!Purple     color4
+!           color12
+!Pink       color5
+!           color13
+!Cyan       color6
+!           color14
+!white      color7
+!           color15
+
+!St
+!st.font:
+!Black
+!*.color0:      #1e1e1e
+!*.color8:      #545454
+*.color0:     #000000
+*.color8:     #4D4D4D
+!Red
+!*.color1:      #f44747
+!*.color9:      #f44747
+*.color1:     #FF5555
+*.color9:     #FF6E67
+!Green
+!*.color2:      #608b4e
+!*.color10:     #608b4e
+*.color2:     #50FA7B
+*.color10:    #5AF78E
+!Yellow
+!*.color3:      #dcdcaa
+!*.color11:     #dcdcaa
+*.color3:     #F1FA8C
+*.color11:    #F4F99D
+!Purple
+!*.color4:      #569cd6
+!*.color12:     #569cd6
+*.color4:     #BD93F9
+*.color12:    #CAA9FA
+!Magenta
+!*.color5:      #c678dd
+!*.color13:     #c678dd
+*.color5:     #FF79C6
+*.color13:    #FF92D0
+!Cyan
+!*.color6:      #56b6c2
+!*.color14:     #56b6c2
+*.color6:     #8BE9FD
+*.color14:    #9AEDFE
+!White
+!*.color7:      #d4d4d4
+!*.color15:     #d4d4d4
+*.color7:     #BFBFBF
+*.color15:    #E6E6E6
+
+!*.background:  #1e1e1e
+!*.foreground:  #d4d4d4
+*.foreground: #F8F8F2
+*.background: #282A36
+
+!Simple Terminal
+st.borderpx : 50
+st.cursorColor : #d4d4d4
+!DWM
+dwm.normbgcolor :           #282A36
+!*.normbordercolor :       #F7768E
+dwm.normfgcolor :           #F8F8F2
+dwm.selbgcolor :            #282A36
+dwm.selbordercolor :        #FF79C6
+dwm.selfgcolor :            #FF79C6
+dwm.borderpx :              0
+!dwm.snap :
+!dwm.showbar :
+!dwm.topbar :
+!dwm.nmaster :
+!dwm.resizehints :
+!dwm.mfact :
+
+!dmenu
+
+dmenu.normbgcolor :         #282A36
+dmenu.normfgcolor :         #F8F8F2
+dmenu.selbgcolor :          #FF79C6
+dmenu.selbordercolor :      #FF79C6
+dmenu.selfgcolor :          #282A36
+dmenu.selbghigh :           #f44747
+dmenu.selfghigh :           #F8F8F2
+dmenu.normbghigh:           #282A36
+dmenu.normfghigh:           #F8F8F2
