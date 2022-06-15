@@ -27,7 +27,7 @@ alias df='df -h'     # human-readable sizes
 alias free='free -m' # show sizes in MB
 
 # For when keys break
-alias archlinux-fix-keys="doas pacman-key --init && sudo pacman-key --populate archlinux && sudo pacman-key --refresh-keys"
+alias archlinux-fix-keys="doas pacman-key --init && doas pacman-key --populate archlinux && doas pacman-key --refresh-keys"
 
 # Use neovim instead of vim
 
