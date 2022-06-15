@@ -1,0 +1,29 @@
+#!/bin/sh
+#battery
+
+get_Battery_Charge()
+{
+    Bat=$1
+
+    charge=$( acpi -i | awk -v bat_var="$Bat" '$2 == bat_var ":" ' | awk 'NR == 1' | grep -o "...%" )
+    echo "$charge"
+}
+
+check_charging()
+{
+    Bat=$1
+    charge_state=$( acpi -i | awk -v bat_var="$Bat" '$2 == bat_var ":" ' | awk 'NR == 1' | awk '{print $3}' )
+    if [ "$charge_state" = "Charging," ]; then
+      echo 1
+    else
+      echo 0 
+    fi
+}
+
+num=$1
+charging=$( check_charging "$num" )
+if [ "$charging" = 1 ]; then
+  echo | get_Battery_Charge "$num";
+else
+  echo | get_Battery_Charge "$num"
+fi
