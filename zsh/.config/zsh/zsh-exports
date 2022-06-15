@@ -13,3 +13,12 @@ export PATH="$PATH:./node_modules/.bin"
 # eval "$(fnm env)"
 # eval "$(zoxide init zsh)"
 # eval "`pip completion --zsh`"
+
+# Default Apps
+export EDITOR='nvim'
+export READER='zathura'
+export VISUAL='nvim'
+export TERMINAL='alacritty'
+export BROWSER='firefox'
+export VIDEO='mpv'
+export IMAGE='sxiv'

@@ -1,37 +1,40 @@
 #
 # wm independent hotkeys
 #
-#pulsemixer --change-volume +5
-#pulsemixer --change-volume -5
-#changeVolume 2dB+ unmute
-#changeVolume 2dB- unmute
-# sound
+#
+# Media Keys
 XF86AudioRaiseVolume
     /home/finn/.local/bin/changeVolume 2dB+ unmute
 XF86AudioLowerVolume
     /home/finn/.local/bin/changeVolume 2dB- unmute
 XF86AudioMute
-    pulsemixer --toggle-mute
+    /home/finn/.local/bin/changeVolume mute
+
 XF86AudioPrev
     playerctl --player=spotify previous
 XF86AudioPlay
     playerctl --player=spotify  play-pause
 XF86AudioNext
     playerctl --player=spotify  next
+# Brightness 
+XF86MonBrightnessUp
+    /home/finn/.local/bin/changeBrightness 5
+XF86MonBrightnessDown
+    /home/finn/.local/bin/changeBrightness -5
 
 # screenshot
 Print
     scrot ~/Bilder/%Y-%m-%d-%T-screenshot.png
 
 # terminal emulator
-alt + Return
-	st
+#alt + Return
+	# alacritty
 
 # program launcher
-alt + @space
-	j4-dmenu-desktop --dmenu="dmenu -c -l 15 -h "24" "
-alt + shift + @space
-	dmenu_run -c -l 15 -h "24"
+# alt + @space
+	# j4-dmenu-desktop --dmenu="dmenu -c -l 15 -h "24" "
+# alt + shift + @space
+	# dmenu_run -c -l 15 -h "24"
 
 # gui file manager
 alt + d
@@ -49,9 +52,3 @@ alt + shift + b
 # make sxhkd reload its configuration files:
 alt + Escape
 	pkill -USR1 -x sxhkd
-#######
-    #killall picom; \
-    #picom --corner-radius 0;
-
-    #killall picom; \
-    #picom --corner-radius 12;

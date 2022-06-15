@@ -1,5 +1,7 @@
 #!/bin/sh
 
+xrdb /home/finn/.Xresources &
+dunst &
 xsetroot -cursor_name left_ptr &
 unclutter &
 feh --bg-fill '/home/finn/.config/wallpaper/wall.jpg' &
