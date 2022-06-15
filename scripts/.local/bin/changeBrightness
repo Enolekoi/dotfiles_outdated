@@ -1,0 +1,17 @@
+#!/bin/sh
+# changeBrightness
+
+#Arbitrary but unique message tag
+msgTag="mybrightness"
+
+# Change the brightness using 'light'
+if [ $@ -lt 0 ]; then
+  light -U "${@#-}" > /dev/null
+else
+  light -A "${@#-}" > /dev/null
+fi
+
+# Query light for the current brightness
+brightness="$(light -G)"
+dunstify -a "changeBrightness" -u low -i audio-volume-high -h string:x-dunst-stack-tag:$msgTag \
+-h int:value:"$brightness" "Brightness: ${brightness}%"
